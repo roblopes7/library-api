@@ -12,6 +12,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 @DataJpaTest
@@ -27,13 +29,17 @@ public class BookRepositoryTest {
     @DisplayName("Deve retornar verdadeiro quando existir um livro na base com isbn informado")
     public void returnTrueWhenIsbnExists(){
         String isbn = "123";
-        Book book = Book.builder().author("José Mauro de Vasconscelos").title("Meu pé de laranja Lima").isbn(isbn).build();
+        Book book = getBook(isbn);
         entityManager.persist(book);
 
         boolean exists = repository.existsByIsbn(isbn);
 
         Assertions.assertThat(exists).isTrue();
 
+    }
+
+    private Book getBook(String isbn) {
+        return Book.builder().author("José Mauro de Vasconscelos").title("Meu pé de laranja Lima").isbn(isbn).build();
     }
 
     @Test
@@ -45,5 +51,37 @@ public class BookRepositoryTest {
 
         Assertions.assertThat(exists).isFalse();
 
+    }
+
+    @Test
+    @DisplayName("Deve obter um livro por ID")
+    public void findByIdTEst(){
+        Book book = getBook("123");
+        entityManager.persist(book);
+        Optional<Book> foundBook = repository.findById(book.getId());
+        Assertions.assertThat(foundBook.isPresent()).isTrue();
+
+    }
+
+    @Test
+    @DisplayName("Deve salvar um livro")
+    public void saveBookTest(){
+        Book book = getBook("123");
+        Book savedBook = repository.save(book);
+
+        Assertions.assertThat(savedBook.getId()).isNotNull();
+    }
+
+    @Test
+    @DisplayName("Deve deletar um livro")
+    public void deleteBookTest(){
+        String isbn = "123";
+        Book book = getBook(isbn);
+        entityManager.persist(book);
+
+        Book foundedBook = entityManager.find(Book.class, book.getId());
+        repository.delete(foundedBook);
+        Book deletedBook = entityManager.find(Book.class, book.getId());
+        Assertions.assertThat(deletedBook).isNull();
     }
 }
