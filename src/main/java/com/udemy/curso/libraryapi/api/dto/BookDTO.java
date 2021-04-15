@@ -1,4 +1,4 @@
-package com.udemy.curso.libraryapi.dto;
+package com.udemy.curso.libraryapi.api.dto;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
 package com.udemy.curso.libraryapi.service;
 
-import com.udemy.curso.libraryapi.exceptions.BusinessException;
+import com.udemy.curso.libraryapi.api.exceptions.BusinessException;
 import com.udemy.curso.libraryapi.model.entity.Book;
 import com.udemy.curso.libraryapi.model.repositories.BookRepository;
 import org.assertj.core.api.Assertions;
@@ -14,7 +14,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.querydsl.QPageRequest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 

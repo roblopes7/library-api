@@ -1,8 +1,8 @@
-package com.udemy.curso.libraryapi.resource;
+package com.udemy.curso.libraryapi.api.resource;
 
-import com.udemy.curso.libraryapi.dto.BookDTO;
-import com.udemy.curso.libraryapi.exceptions.ApiErrors;
-import com.udemy.curso.libraryapi.exceptions.BusinessException;
+import com.udemy.curso.libraryapi.api.dto.BookDTO;
+import com.udemy.curso.libraryapi.api.exceptions.ApiErrors;
+import com.udemy.curso.libraryapi.api.exceptions.BusinessException;
 import com.udemy.curso.libraryapi.model.entity.Book;
 import com.udemy.curso.libraryapi.service.BookService;
 import org.modelmapper.ModelMapper;
@@ -18,10 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/api/books")
@@ -52,13 +49,6 @@ public class BookController {
 
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrors handleValidationExceptions(MethodArgumentNotValidException validException) {
-        BindingResult bindingResult = validException.getBindingResult();
-        return new ApiErrors(bindingResult);
-    }
-
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
@@ -85,9 +75,4 @@ public class BookController {
         return new PageImpl<BookDTO>(list, pageRequest, result.getTotalElements());
     }
 
-    @ExceptionHandler(BusinessException.class)
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public ApiErrors handleBusinessException(BusinessException ex) {
-        return new ApiErrors(ex);
-    }
 }
