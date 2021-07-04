@@ -1,5 +1,6 @@
 package com.udemy.curso.libraryapi.api.exceptions;
 
+import com.udemy.curso.libraryapi.exceptions.BusinessException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.server.ResponseStatusException;
 

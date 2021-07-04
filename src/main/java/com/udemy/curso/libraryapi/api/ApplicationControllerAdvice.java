@@ -1,7 +1,7 @@
 package com.udemy.curso.libraryapi.api;
 
 import com.udemy.curso.libraryapi.api.exceptions.ApiErrors;
-import com.udemy.curso.libraryapi.api.exceptions.BusinessException;
+import com.udemy.curso.libraryapi.exceptions.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
