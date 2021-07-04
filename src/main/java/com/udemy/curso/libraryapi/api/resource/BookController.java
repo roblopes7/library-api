@@ -1,7 +1,10 @@
 package com.udemy.curso.libraryapi.api.resource;
 
 import com.udemy.curso.libraryapi.api.dto.BookDTO;
+<<<<<<< HEAD
 import com.udemy.curso.libraryapi.api.dto.LoanDTO;
+=======
+>>>>>>> 68a74cf36bb12bc51ab2d3ccd0ee906320bab959
 import com.udemy.curso.libraryapi.model.entity.Book;
 import com.udemy.curso.libraryapi.model.entity.Loan;
 import com.udemy.curso.libraryapi.service.BookService;

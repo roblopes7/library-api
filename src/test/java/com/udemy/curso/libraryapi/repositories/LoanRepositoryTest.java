@@ -18,7 +18,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> 68a74cf36bb12bc51ab2d3ccd0ee906320bab959
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
@@ -69,6 +72,7 @@ public class LoanRepositoryTest {
 
     }
 
+<<<<<<< HEAD
     @Test
     @DisplayName("Deve obter empréstimos cujo a data de empréstimo for menor ou igual a 3 dias atrás e não retornados")
     public void findByLoanDateLessThanAndNotReturnedTest(){
@@ -105,4 +109,6 @@ public class LoanRepositoryTest {
         return loan;
     }
 
+=======
+>>>>>>> 68a74cf36bb12bc51ab2d3ccd0ee906320bab959
 }
