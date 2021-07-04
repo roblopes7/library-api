@@ -1,4 +1,4 @@
-package com.udemy.curso.libraryapi.api.exceptions;
+package com.udemy.curso.libraryapi.exceptions;
 
 public class BusinessException extends RuntimeException {
     public BusinessException(String s) {

@@ -1,8 +1,9 @@
-package com.udemy.curso.libraryapi.service;
+package com.udemy.curso.libraryapi.service.imp;
 
-import com.udemy.curso.libraryapi.api.exceptions.BusinessException;
+import com.udemy.curso.libraryapi.exceptions.BusinessException;
 import com.udemy.curso.libraryapi.model.entity.Book;
 import com.udemy.curso.libraryapi.model.repositories.BookRepository;
+import com.udemy.curso.libraryapi.service.BookService;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
@@ -64,6 +65,6 @@ public class BookServiceImp implements BookService {
 
     @Override
     public Optional<Book> getBookByIsbn(String isbn) {
-        return Optional.empty();
+        return repository.findByIsbn(isbn);
     }
 }

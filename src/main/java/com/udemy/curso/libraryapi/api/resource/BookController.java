@@ -1,8 +1,6 @@
 package com.udemy.curso.libraryapi.api.resource;
 
 import com.udemy.curso.libraryapi.api.dto.BookDTO;
-import com.udemy.curso.libraryapi.api.exceptions.ApiErrors;
-import com.udemy.curso.libraryapi.api.exceptions.BusinessException;
 import com.udemy.curso.libraryapi.model.entity.Book;
 import com.udemy.curso.libraryapi.service.BookService;
 import org.modelmapper.ModelMapper;
@@ -11,8 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
