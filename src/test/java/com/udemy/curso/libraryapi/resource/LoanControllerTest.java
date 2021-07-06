@@ -184,10 +184,7 @@ public class LoanControllerTest {
                         .book(book)
                         .customer(customer)
                         .loanDate(LocalDate.now())
-<<<<<<< HEAD
                         .customerEmail("customer@email.com")
-=======
->>>>>>> 68a74cf36bb12bc51ab2d3ccd0ee906320bab959
                         .build();
     }
 
